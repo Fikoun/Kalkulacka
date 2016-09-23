@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			Test Kalkulačka
+		</title>
+		<style type="text/css">
+			button
+			{
+	-moz-box-shadow: 2px 2px 4px -1px #07750b;
+	-webkit-box-shadow: 2px 2px 4px -1px #07750b;
+	box-shadow: 2px 2px 4px -1px #07750b;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #28c75a), color-stop(1, #21cf5e));
+	background:-moz-linear-gradient(top, #28c75a 5%, #21cf5e 100%);
+	background:-webkit-linear-gradient(top, #28c75a 5%, #21cf5e 100%);
+	background:-o-linear-gradient(top, #28c75a 5%, #21cf5e 100%);
+	background:-ms-linear-gradient(top, #28c75a 5%, #21cf5e 100%);
+	background:linear-gradient(to bottom, #28c75a 5%, #21cf5e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#28c75a', endColorstr='#21cf5e',GradientType=0);
+	background-color:#28c75a;
+	-moz-border-radius:42px;
+	-webkit-border-radius:42px;
+	border-radius:42px;
+	border:2px solid #0c9921;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:28px;
+	padding:25px 33px;
+	text-decoration:none;
+	text-shadow:3px 2px 3px #338535;
+}
+			button:active
+			{
+				border:0px;
+				position:relative;
+				top:1px;
+				left: 1px;
+			}
+			input
+			{
+font-family: Georgia, "Times New Roman", Times, serif;
+    background: rgba(255,255,255,.1);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+   	margin: 0;
+    outline: 0;
+    padding: 7px;
+    width: 300px;
+    box-sizing: border-box; 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; 
+    background-color: #e8eeef;
+    color:#8a97a0;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 10px;
+			}
+
+			article
+			{
+				border: 5px solid green;
+				width: 300px;
+			}
+
+		</style>
+
+
+	</head>
+
+	<body>
+			<article>
+						
+						<input type="text" id="cal" readonly><br/>
+						<button id="n1" onclick="num('1')">1</button>	<button id="n2" onclick="num('2')">2</button>	<button id="n3" onclick="num('3')">3</button><br/>
+						<button id="n4" onclick="num('4')">4</button>	<button id="n5" onclick="num('5')">5</button>	<button id="n6" onclick="num('6')">6</button><br/>
+						<button id="n7" onclick="num('7')">7</button>	<button id="n8" onclick="num('8')">8</button>	<button id="n9" onclick="num('9')">9</button><br/>
+						<button id="nP" onclick="plus()">+</button>	<button id="nM" onclick="minus()">- </button>	<button id="nE" onclick="equals()">=</button><br/>
+			</article>
+			<script type="text/javascript">
+								var num1 = "";
+								var num2 = "";
+								var op = "";
+								var reset = false;
+								var numN = false;
+							
+								var cal = document.getElementById("cal");
+
+								function num(num){
+									if (reset) 
+									{
+										cal.value = "";
+										num1 = "";
+										num2 = "";
+										numN = false;
+										reset = false;
+									}
+									cal.value = cal.value + num;
+									if (numN) {
+										num2 = num2 + num;
+									}else{
+										num1 = num1 + num;
+									}
+								}
+								function plus() {
+									if (reset) 
+									{
+										cal.value = "";
+										num1 = "";
+										num2 = "";
+										numN = false;
+										reset = false;
+									}
+									op = "+";
+									numN = true;
+									
+									cal.value = cal.value + " + ";
+								}
+
+								function minus() {
+									if (reset) 
+									{
+										cal.value = "";
+										num1 = "";
+										num2 = "";
+										numN = false;
+										reset = false;
+									}
+									op = "-";
+									numN = true;									
+									
+									cal.value = cal.value + " - ";
+								}
+
+								function equals() {
+									if (op == "+") {
+										var res = parseInt(num1) + parseInt(num2);
+										cal.value = cal.value + " = " + res;
+									}else {
+										var res = parseInt(num1) - parseInt(num2);
+										cal.value = cal.value + " = " + res;
+									}
+									reset = true;
+
+									
+								}
+
+
+					</script>
+			
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
